@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput, Button, StyleSheet, Alert } from 'react-native';
 
 const styles = StyleSheet.create({
   form: {
@@ -17,20 +17,35 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     marginRight: 10,
   },
+  
 });
 
-function ToDoForm() {
+function ToDoForm({ onAdd }) {
+  const [taskText, setTaskText] = React.useState('');
+
+  const handleAddTask = () => {
+    if (taskText.trim() === '') {
+      Alert.alert('Error', 'Please enter a task.');
+      return;
+    }
+
+    onAdd(taskText);
+    setTaskText(''); 
+  }
+
   return (
     <View style={styles.form}>
       <TextInput
         style={styles.input}
         placeholder="Add a new task..."
+        onChangeText={(text) => setTaskText(text)}
+        value={taskText}
       />
-      <Button title="Add" />
+      <Button title="Add Task" onPress={handleAddTask} />
     </View>
   );
 }
-
+  
 export default ToDoForm;
 
 
