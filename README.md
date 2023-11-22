@@ -1,54 +1,53 @@
-<h1> Lab-Layout-Components </h1>
-<h2>CPRG303: Mobile Development Lab-Assignment </h2>
+<h1>Lab Summary</h1>
 
-<h3> Lab 4: State Lifting and Event Handling</h3>
+<h2>Part 1: Install Dependencies</h2>
+    <ol>
+        <li>Open your terminal in the project directory.</li>
+        <li>Install the necessary packages using either Yarn or npm:</li>
+</ol>
 
-<h3>Part 1: Implement and Pass addTask Function</h3>
-<ul>
-    <li><strong>Define addTask in App Component:</strong><br>
-        Inside the App component, define a new function called addTask. This function will later be responsible for updating the task list.
-    </li>
-    <li><strong>Provide addTask as a Property:</strong><br>
-        When rendering the ToDoForm component inside App, provide this addTask function as a property so it can be used within the form.
-    </li>
-    <li><strong>Access addTask in ToDoForm:</strong><br>
-        Within the ToDoForm component, access the passed addTask function from the component's properties.
-    </li>
-</ul>
+  <code>
+<pre>   
+   # npm
+    npm install @react-navigation/native @react-navigation/stack
+    npm install react-native-gesture-handler react-native-safe-area-context react-native-screens
+</pre>
+    </code>
 
-<h3>Part 2: Pass Task to App Component</h3>
-<ul>
-    <li><strong>Create Local State for Task Text:</strong><br>
-        In the ToDoForm component, create a local state variable, say taskText. This will hold the text the user types for a new task.
-    </li>
-    <li><strong>Connect State to Input Field:</strong><br>
-        Connect this state variable (taskText) to the text input field. This ensures that when a user types something, the state variable updates accordingly.
-    </li>
-    <li><strong>Set Up Button Action:</strong><br>
-        For the submission button in the form, set up an action such that when it's pressed, the addTask function is called with the current value of taskText (i.e., the new task).
-    </li>
-</ul>
 
-<h3>Part 3: Implement addTask in App Component</h3>
-<ul>
-    <li><strong>Update Task List in addTask:</strong><br>
-        Inside the addTask function in the App component, introduce logic to update the list of tasks. This will involve adding the new task (passed to it when called) to the existing list of tasks.
-    </li>
-    <li><strong>Append New Task:</strong><br>
-        Ensure that when updating the list, the new task gets appended to the end of the existing tasks.
-    </li>
-</ul>
+<h2>Part 2: Set Up Navigation</h2>
+    <ol>
+        <li>Open the <code>App.js</code> file.</li>
+        <li>Import the required components from <code>react-navigation/stack</code>.</li>
+        <li>Create a stack navigator using <code>createStackNavigator</code>.</li>
+        <li>Wrap the entire app content in a <code>NavigationContainer</code> component.</li>
+    </ol>
 
-<h3>Part 4: Enhancing Your App (Optional)</h3>
-<ul>
-    <li><strong>Clear Input Field:</strong><br>
-        After a new task is successfully added, clear the input field in ToDoForm. This provides a clean slate for the user to add another task.
-    </li>
-    <li><strong>Check for Duplicate Tasks:</strong><br>
-        Before adding a new task to the list, check if it already exists in the current task list. If it does, avoid adding it again to prevent duplicates. Optionally, provide feedback to the user if they try to add a duplicate task.
-    </li>
-</ul>
+<h2>Part 3: Create Screens</h2>
+    <ol>
+        <li>Create separate components for different screens: <code>HomeScreen.jsx</code> and <code>AboutScreen.js</code>.</li>
+        <li>Render the Stack Navigator component in the <code>App</code> component.</li>
+    </ol>
 
+<h2>Part 4: Implement Navigation</h2>
+    <ol>
+        <li>Inside your <code>HomeScreen</code> and <code>AboutScreen</code> components, use <code>props.navigation</code> to navigate to other screens.</li>
+    </ol>
+
+<h2>Part 5: Reusable Layout Components</h2>
+    <ol>
+        <li>Organize your project's folder structure, creating folders for components, screens, and a new "layouts" folder.</li>
+        <li>In the "layouts" folder, create a file called <code>MainLayout.jsx</code> with a functional component that serves as a common layout for all screens.</li>
+        <li>Import the <code>MainLayout</code> component in your screen components and wrap the content of each screen component with it.</li>
+        <li>Optionally, add a Header and/or Footer component to the <code>MainLayout</code> component.</li>
+    </ol>
+
+<h2>Part 6: Enhance App (Optional)</h2>
+    <ol>
+        <li>Enhance your app by adding optional features such as an Easter egg on the About screen, styling screens and navigation elements, and implementing a Drawer Navigator using the React Navigation documentation.</li>
+    </ol>
+
+<p>Note: This summary is provided in HTML format for clarity and readability but is intended to be applied to your project's README.md file or documentation.</p>
 
 <p><strong>Note:</strong></p>
 This project and README are intended for educational use. Feel free to improve the README as needed to enhance its clarity and completeness. © Property of Southern Alberta Institute of Technology (SAIT) 2023
