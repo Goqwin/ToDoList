@@ -1,16 +1,31 @@
-import React from 'react';
-import {View, Text} from 'react-native';
+import React, {useCallback} from 'react';
+import {View, Text, Alert} from 'react-native';
+import MainLayout from '../layouts/MainLayout';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Styles from '../layouts/Styles';
 
-function About({}){
+const About = () => {
+    const handleNamePress = useCallback(() => {
+        Alert.alert("Easter Egg", "You found the Easter egg!");
+    }, []);
+
     return (
-        <>
-         <View>
-            <Text> Nick's Awesome To Do List App</Text>
-            <Text> Created by: Godwin Joe</Text>
-            <Text> Version: 0.1.4.2096 </Text>
-         </View>
-        </>
+        <MainLayout>
+            <View style={Styles.container}>
+                <Text style={Styles.title}>Nick's Awesome To-Do List App</Text>
+                <Text style={Styles.text}>Created by: Godwin Joe</Text>
+                <Text style={Styles.text}>Version: 0.1.4.2096</Text>
+                <TouchableOpacity
+                    style={Styles.easterEgg}
+                    onPress={handleNamePress}
+                    accessible={true}
+                    accessibilityLabel="Press to reveal Easter egg"
+                >
+                    <Text style={Styles.easterEggText}>Godwin Joe (Easter Egg)</Text>
+                </TouchableOpacity>
+            </View>
+        </MainLayout>
     );
-}
+};
 
 export default About;

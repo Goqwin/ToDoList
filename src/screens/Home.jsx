@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { SafeAreaView, Alert, Button } from 'react-native';
-import ToDoList from '../ToDoList';
-import ToDoForm from '../ToDoForm';
+import ToDoList from '../components/ToDoList';
+import ToDoForm from '../components/ToDoForm';
+import MainLayout from '../layouts/MainLayout';
 
 
 function Home({navigation}) {
@@ -18,17 +19,17 @@ function Home({navigation}) {
         Alert.alert('Error', 'Task already exists.');
       }
     };
-  
     return (
-      <SafeAreaView>
-        <ToDoList tasks={tasks} />
-        <ToDoForm onAdd={addTask} />
-
-        <Button
+      <MainLayout>
+        <SafeAreaView>
+          <ToDoList tasks={tasks} />
+          <ToDoForm onAdd={addTask} />
+          <Button
             title="Go to About"
             onPress={() => navigation.navigate('About')}
-        />
-      </SafeAreaView>
+          />
+        </SafeAreaView>
+      </MainLayout>
     );
   }
   

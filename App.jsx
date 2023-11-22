@@ -12,7 +12,7 @@ import HomeScreen from './src/screens/Home';
 
 const Stack = createStackNavigator();
 
-function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
@@ -22,5 +22,6 @@ function App() {
     </NavigationContainer>
   );
 }
+
 
 export default App;
