@@ -4,33 +4,23 @@
  * @format
  */
 
-import React, { useState } from 'react';
-import { SafeAreaView, Alert } from 'react-native';
-import ToDoList from './ToDoList'; 
-import ToDoForm from './ToDoForm';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import AboutScreen from './src/screens/About';
+import HomeScreen from './src/screens/Home';
+
+const Stack = createStackNavigator();
 
 function App() {
-  const [tasks, setTasks] = useState([
-    'Do laundry',
-    'Go to gym',
-    'Walk dog'
-  ]);
-
-  const addTask = (newTask) => {
-    if (!tasks.includes(newTask)) {
-      setTasks(prevTasks => [...prevTasks, newTask]);
-    } else {
-      Alert.alert('Error', 'Task already exists.'); 
-    }
-  }
-
   return (
-    <SafeAreaView>
-      <ToDoList tasks={tasks} />
-      <ToDoForm onAdd={addTask} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-} 
+}
 
 export default App;
-
